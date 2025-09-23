@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleek File Converter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">SleekConverter</div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="{{ url_for('login') }}" class="cta-button">Log In</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero-section">
+            <h1 class="main-heading">Convert Any File with Speed and Ease.</h1>
+            <p class="sub-heading">Your files, instantly converted. Simple, fast, and secure.</p>
+
+            <div class="file-upload-card" id="drop-zone">
+                <div class="upload-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M4.002 5.5a.5.5 0 1 0-.002 1h1.583a3.5 3.5 0 1 1-2.5 5.5H4a.5.5 0 1 0 0 1h-.5a4.5 4.5 0 1 0 3.196-8.568.5.5 0 0 0 .19-.854.5.5 0 1 0-.853.19A5.501 5.501 0 0 1 3.5 1h9A3.5 3.5 0 1 1 12 11h-1.583a.5.5 0 0 0 0 1h1.583a4.501 4.501 0 0 0 0-9h-9a.5.5 0 0 0-.5.5zM7.5 7v4.5a.5.5 0 0 0 1 0V7h.5a.5.5 0 0 0 .354-.854l-1.5-1.5a.5.5 0 0 0-.708 0l-1.5 1.5A.5.5 0 0 0 7 7h.5z"/>
+                    </svg>
+                </div>
+                <p>Drag & Drop your PDF here, or <span class="browse-link">Browse Files</span></p>
+                <input type="file" id="file-input" hidden>
+            </div>
+            
+            <form action="{{ url_for('convert') }}" method="post" enctype="multipart/form-data">
+                <input type="file" id="real-file-input" name="file" required hidden>
+                
+                <div class="conversion-options">
+                    <p>Convert to:</p>
+                    <div class="option-group">
+                        <label class="custom-radio">
+                            <input type="radio" name="output_format" value="docx" checked>
+                            <span class="radio-label">DOCX</span>
+                        </label>
+                        <label class="custom-radio">
+                            <input type="radio" name="output_format" value="txt">
+                            <span class="radio-label">TXT</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="convert-button" disabled>Convert Now</button>
+            </form>
+        </section>
+    </main>
+    
+    <section class="premium-section">
+      <div class="premium-card">
+          <h2>Unlock More Power</h2>
+          <p>Get a faster, higher-resolution experience with a premium account.</p>
+          <a href="{{ url_for('login') }}" class="cta-button-secondary">Learn More</a>
+      </div>
+    </section>
+
+    <script>
+      const dropZone = document.getElementById('drop-zone');
+      const fileInput = document.getElementById('real-file-input');
+      const browseLink = document.querySelector('.browse-link');
+      const convertButton = document.querySelector('.convert-button');
+
+      browseLink.addEventListener('click', () => fileInput.click());
+
+      dropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropZone.classList.add('dragover');
+      });
+
+      dropZone.addEventListener('dragleave', () => {
+        dropZone.classList.remove('dragover');
+      });
+
+      dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('dragover');
+        const files = e.dataTransfer.files;
+        if (files.length > 0) {
+          fileInput.files = files;
+          convertButton.disabled = false;
+        }
+      });
+
+      fileInput.addEventListener('change', () => {
+        if (fileInput.files.length > 0) {
+          convertButton.disabled = false;
+        }
+      });
+    </script>
+</body>
+</html>
