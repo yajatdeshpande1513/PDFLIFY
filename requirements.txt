@@ -1,5 +1,6 @@
 flask
 gunicorn
-PyPDF2
 flask-login
-flask-sqlalchemy
+pdf2docx
+pdfplumber
+werkzeug
