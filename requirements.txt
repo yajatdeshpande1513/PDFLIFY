@@ -1,3 +1,5 @@
 flask
 gunicorn
 PyPDF2
+flask-login
+flask-sqlalchemy
