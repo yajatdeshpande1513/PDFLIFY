@@ -3,22 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tools</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Tools - PDFLIFY</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <div class="container mt-5">
-        <h1>Our Conversion Tools</h1>
-        <p>Select a tool to get started:</p>
-        <div class="d-grid gap-2 col-6 mx-auto">
-            <a href="{{ url_for('audio_converter') }}" class="btn btn-outline-warning btn-lg">Audio Converter</a>
-            <a href="{{ url_for('video_converter') }}" class="btn btn-outline-warning btn-lg">Video Converter</a>
-            <a href="{{ url_for('font_converter') }}" class="btn btn-outline-warning btn-lg">Font Converter</a>
-            <a href="{{ url_for('archive_converter') }}" class="btn btn-outline-warning btn-lg">Archive Converter</a>
-            <a href="{{ url_for('ebook_converter') }}" class="btn btn-outline-warning btn-lg">Ebook Converter</a>
+    <header>
+        <nav>
+            <div class="logo">SleekConverter</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/logout" class="text-danger small">Log Out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div class="container">
+            <h1 class="main-heading">Conversion Tools</h1>
+            <p class="sub-heading">Premium tools for all your file needs.</p>
+            
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} mb-4">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="premium-card h-100">
+                        <h4>Audio</h4>
+                        <p class="small text-muted">MP3, WAV & More</p>
+                        <a href="{{ url_for('audio_converter') }}" class="cta-button-secondary d-block">Open</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="premium-card h-100">
+                        <h4>Video</h4>
+                        <p class="small text-muted">MP4 to GIF/AVI</p>
+                        <a href="{{ url_for('video_converter') }}" class="cta-button-secondary d-block">Open</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="premium-card h-100">
+                        <h4>Archive</h4>
+                        <p class="small text-muted">ZIP, RAR, 7Z</p>
+                        <a href="{{ url_for('archive_converter') }}" class="cta-button-secondary d-block">Open</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-5">
+                <a href="/" class="text-muted small">← Back to PDF Converter</a>
+            </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
