@@ -5,6 +5,7 @@
   --text-light: #e0e0e0;
   --text-muted: #b0b0b0;
   --border-color: #333;
+  --glow: rgba(46, 139, 87, 0.3);
 }
 
 body {
@@ -12,28 +13,27 @@ body {
   background-color: var(--background-dark);
   color: var(--text-light);
   margin: 0;
-  padding: 0;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 
-/* Header and Navigation Fix */
+/* --- Optimized Navbar --- */
 header {
   width: 100%;
   padding: 1rem 0;
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(18, 18, 18, 0.9);
-  backdrop-filter: blur(10px);
+  background-color: rgba(18, 18, 18, 0.85);
+  backdrop-filter: blur(12px);
   z-index: 1000;
   border-bottom: 1px solid var(--border-color);
 }
 
 nav {
   width: 90%;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -43,58 +43,75 @@ nav {
 .nav-links {
   list-style: none;
   display: flex;
+  gap: 1.5rem;
   align-items: center;
-  gap: 2rem;
   margin: 0;
-  padding: 0;
 }
 
-/* Hero Section Alignment */
-.main-content {
-  flex: 1;
+/* --- Interactive Radio Group --- */
+.option-group {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-top: 80px; /* Space for fixed header */
-}
-
-.container {
-  width: 90%;
-  max-width: 900px;
-  padding: 2rem;
-  text-align: center;
-}
-
-/* Login/Signup Card Centering */
-.auth-card {
-  background-color: var(--card-background);
-  padding: 2.5rem;
-  border-radius: 15px;
+  background: #161616;
+  padding: 5px;
+  border-radius: 50px;
   border: 1px solid var(--border-color);
-  width: 100%;
-  max-width: 400px;
-  margin: 40px auto;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  width: fit-content;
+  margin: 1.5rem auto;
 }
 
-.auth-card h1 { color: var(--primary-color); font-weight: 700; margin-bottom: 1.5rem; }
-
-/* Existing Button & Card Styles */
-.file-upload-card {
-  background-color: var(--card-background);
-  border: 2px dashed var(--border-color);
-  border-radius: 12px;
-  padding: 3rem;
+.custom-radio {
+  position: relative;
   cursor: pointer;
+}
+
+.custom-radio input {
+  display: none;
+}
+
+.radio-label {
+  display: block;
+  padding: 10px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  color: var(--text-muted);
   transition: all 0.3s ease;
 }
 
-.cta-button, .btn-primary {
-  background-color: var(--primary-color) !important;
-  border: none !important;
-  border-radius: 50px !important;
-  padding: 0.6rem 1.5rem !important;
-  color: white !important;
-  text-decoration: none;
+.custom-radio input:checked + .radio-label {
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: 0 0 15px var(--glow);
+}
+
+/* --- Enhanced Upload Card --- */
+.file-upload-card {
+  background-color: var(--card-background);
+  border: 2px dashed var(--border-color);
+  border-radius: 20px;
+  padding: 4rem 2rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.file-upload-card.dragover {
+  border-color: var(--primary-color);
+  transform: scale(1.02);
+  background-color: rgba(46, 139, 87, 0.05);
+}
+
+.convert-button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1.2rem 4rem;
+  border: none;
+  border-radius: 50px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+.convert-button:not(:disabled):hover {
+  filter: brightness(1.1);
+  box-shadow: 0 0 20px var(--glow);
+  transform: translateY(-2px);
 }
