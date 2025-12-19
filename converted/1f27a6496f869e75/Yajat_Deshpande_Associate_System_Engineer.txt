@@ -1,0 +1,40 @@
+Yajat Deshpande
++91 99677446362 | yajraj2004@yahoo.com | linkedin.com/in/yajat-deshpande-751a36290 |
+github.com/yajatdeshpande1513
+Professional Summary
+Proactive and detail-oriented IT engineering student with a strong foundation in Python, Java, and JavaScript.
+Passionate about solving real-world problems through software development. Experienced in web technologies, cloud
+computing, and cybersecurity fundamentals. Committed to continuous learning and building impactful digital solutions.
+Technical Skills
+Languages: C, C++, Python, Java, JavaScript, HTML, CSS
+Web Development: Node.js, Express, Flask
+Databases: SQL, MongoDB
+AI/ML: Scikit-learn, NumPy, Pandas
+Tools & Platforms: Git, GitHub, VS Code, Render
+Core Subjects: Data Structures & Algorithms, OOP, DBMS, Software Engineering
+Projects
+FriendBie – Real-Time Chat Application | GitHub
+• Built a real-time chat app using Node.js & Socket.io with minimal latency.
+• Strengthened event-driven architecture knowledge and collaborative development skills.
+Tracktometer – Weekly Task Management Dashboard | GitHub
+• Designed a React-based productivity tracker with reusable components and responsive UI.
+• Improved user engagement through dynamic state management and data visualization.
+FlexiConvert – Digital Toolkit for Everyday Tasks | GitHub
+• Developed a multi-utility web toolkit integrating 5 tools (translator, image editor, etc.).
+• Enhanced front-end problem-solving and UI/UX implementation skills.
+Experience & Certifications
+AWS Cloud Virtual Internship – AWS Academy | Oct – Dec 2024
+• Completed AWS Cloud Foundations with hands-on labs in EC2, S3, IAM, and VPC.
+NDG Linux Essentials – Cisco Networking Academy | Feb 2024
+• Completed training on Linux OS, CLI operations, system navigation, and permissions.
+Education
+B.E. Information Technology (Honors in Cyber Security)
+A. P. Shah Institute of Technology, Thane | Aug 2022 – May 2026
+CGPA: 7.6 / 10
+HSC (Maharashtra Board) – 2022 | 83.33%
+SSC (Maharashtra Board) – 2020 | 94.20%
+Volunteer Experience
+Cyber Security Club – Core Member | Aug 2023 – Jan 2024
+• Co-organized cybersecurity workshops for 100+ students, improving teamwork and communication.
+National Service Scheme (NSS) – Volunteer | Jul 2023 – Jan 2025
+• Supported community initiatives including tree plantation (25+ saplings) and awareness campaigns.
